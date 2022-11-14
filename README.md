@@ -6,11 +6,35 @@
 
 ###
 
-<h2 align="left">About the test</h2>
+<h6 align="left">º proof of concept(poc), denominado como uma prova de conceito, é um mini projeto aplicado para avaliar os conhecimentos básicos do autor a respeito do conteúdo @typeScript.</h6>
 
 ###
 
-<p align="left">👉🏽 It is an application that contributes to the interaction in literature classes.<br><br>👉🏽 Basically, a student sends a title and an authorial poem for the project to run.<br><br>👉🏽 Thus, the poem is inserted, it is possible to do a search and obtain all the poems of that specific author, in addition to being able to edit the text of the poem or delete, based on the id.</p>
+<h2 align="left">Sobre o teste</h2>
+
+###
+
+<p align="left">👉🏽 É uma aplicação voltada para as aulas de literatura nas escolas.<br><br>👉🏽 Basicamente, o estudante consegue inserir o seu poema autoral, e o mesmo poderá ser lido por outros que o pesquisar.<br><br>👉🏽 O presente projeto apresenta 4 rotas, denominadas como CRUD(created, Read, Update, Delete).</p>
+
+###
+
+<h3 align="left">Rotas</h3>
+
+###
+
+<h5 align="left">🔗 POST: /publish<br>Body: { "titlePoem": "teste", "poem": "teste teste teste", "author":"gustavo" }<br><br>🔗 GET: /poems/name=vivi<br><br>🔗 PUT: /poems/poemId=4<br>Body: { "titlePoem": "teste", "poem": "teste teste teste", "author":"vivi" }<br><br>🔗 DELETE: /poems/poemId=5</h5>
+
+###
+
+<h6 align="left">O banco deste projeto já está populado, com tanto as informações cedidas acima servem para orientar de como pode ser feito o uso da aplicação. 📌</h6>
+
+###
+
+<h3 align="left">Instalação</h3>
+
+###
+
+<p align="left">📌 Ao realizar o git clone faça: npm i<br>📌 O dump já está no projeto, com isso basta verificar por meio do terminal, os usuários alocados e realizar testes para verificar as funcionalidades das rotas.</p>
 
 ###
 
@@ -25,5 +49,28 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" height="40" width="52" alt="express logo"  />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" height="40" width="52" alt="postgresql logo"  />
 </div>
+
+###
+
+<div align="left">
+</div>
+
+###
+
+<p align="left"></p>
+
+###
+
+<div align="center">
+  <img height="200" src="https://cdn.dicionariopopular.com/imagens/cachorro-piscando.gif?auto_optimize=low"  />
+</div>
+
+###
+
+<h3 align="left">Autor</h3>
+
+###
+
+<h5 align="left">Gustavo Marques</h5>
 
 ###
