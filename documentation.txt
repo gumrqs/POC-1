@@ -1,0 +1,9 @@
+POST: /publish
+Body: { "titlePoem": "teste", "poem": "teste teste teste", "author":"gustavo" }
+
+GET: /poems/name=vivi
+
+PUT: /poems/poemId=4
+Body: { "titlePoem": "teste", "poem": "teste teste teste", "author":"vivi" }
+
+DELETE: /poems/poemId=5
