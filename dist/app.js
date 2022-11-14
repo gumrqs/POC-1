@@ -1,9 +1,11 @@
-import express from 'express';
-import { poemsStudent } from './Controllers/PoemsControllers.js';
-var server = express(); /*
+import express, { json } from 'express';
+import { poemsStudent, getpoems, updatePoems, deletePoem } from './Controllers/PoemsControllers.js';
+var server = express();
 server.use(json());
- */
-server.get("/hh", poemsStudent);
+server.post("/publish", poemsStudent);
+server.get("/poems/:name", getpoems);
+server.put("/poems/:poemId", updatePoems);
+server["delete"]("/poems/:poemId", deletePoem);
 server.listen(4000, function () {
     console.log("Server running on port 4000");
 });

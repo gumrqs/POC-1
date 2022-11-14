@@ -34,88 +34,52 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { STATUS_CODE } from "../enums/statusCode.js";
-import { postPoems, getPoemsName, updatePoemsId, deletePoemId } from "../repositories/poemsRepository.js";
-export function poemsStudent(req, res) {
+import connection from "../database/database.js";
+export function postPoems(poem) {
     return __awaiter(this, void 0, void 0, function () {
-        var poem, insertPoem, error_1;
+        var idStudent;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    poem = req.body;
-                    if (!poem) {
-                        return [2 /*return*/, res.status(STATUS_CODE.UNAUTHORIZED).send('campos não foram preenchidos')];
-                    }
-                    return [4 /*yield*/, postPoems(poem)];
+                case 0: return [4 /*yield*/, connection.query("\n        SELECT id FROM\n            students\n        WHERE name=($1);\n    ", [poem.author])];
                 case 1:
-                    insertPoem = _a.sent();
-                    return [2 /*return*/, res.status(STATUS_CODE.CREATED).send(insertPoem.rows)];
-                case 2:
-                    error_1 = _a.sent();
-                    return [2 /*return*/, res.sendStatus(STATUS_CODE.SERVER_ERROR)];
-                case 3: return [2 /*return*/];
+                    idStudent = _a.sent();
+                    return [2 /*return*/, connection.query("\n        INSERT INTO \n            poems(\"titlePoem\", poem, \"studentId\")\n        VALUES \n            ($1,$2,$3)\n    ", [poem.titlePoem, poem.poem, idStudent.rows[0].id])];
             }
         });
     });
 }
-export function getpoems(req, res) {
+export function getPoemsName(name) {
     return __awaiter(this, void 0, void 0, function () {
-        var name_1, poemsStudent_1, error_2;
+        var idStudent;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    name_1 = req.params.name;
-                    return [4 /*yield*/, getPoemsName(name_1)];
+                    console.log(name, '777777777777');
+                    return [4 /*yield*/, connection.query("\n        SELECT id FROM\n            students\n        WHERE name=($1);\n    ", [name])];
                 case 1:
-                    poemsStudent_1 = _a.sent();
-                    return [2 /*return*/, res.status(STATUS_CODE.OK).send(poemsStudent_1.rows)];
-                case 2:
-                    error_2 = _a.sent();
-                    return [2 /*return*/, res.sendStatus(STATUS_CODE.SERVER_ERROR)];
-                case 3: return [2 /*return*/];
+                    idStudent = _a.sent();
+                    return [4 /*yield*/, connection.query("\n        SELECT * FROM \n            poems\n        WHERE \n            \"studentId\"=($1);\n    ", [idStudent.rows[0].id])];
+                case 2: return [2 /*return*/, _a.sent()];
             }
         });
     });
 }
-export function updatePoems(req, res) {
+export function updatePoemsId(id, poem) {
     return __awaiter(this, void 0, void 0, function () {
-        var PoemId, poemNew, upPoems, error_3;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    PoemId = Number(req.params.poemId);
-                    poemNew = req.body;
-                    return [4 /*yield*/, updatePoemsId(PoemId, poemNew)];
-                case 1:
-                    upPoems = _a.sent();
-                    return [2 /*return*/, res.status(STATUS_CODE.OK).send(upPoems.rows)];
-                case 2:
-                    error_3 = _a.sent();
-                    return [2 /*return*/, res.sendStatus(STATUS_CODE.SERVER_ERROR)];
-                case 3: return [2 /*return*/];
+                case 0: return [4 /*yield*/, connection.query("\n        UPDATE \n            poems \n         SET \n            poem =($1) \n            ,\n            \"titlePoem\" = ($3)\n        WHERE \n            id=($2)\n    ", [poem.poem, id, poem.titlePoem])];
+                case 1: return [2 /*return*/, _a.sent()];
             }
         });
     });
 }
-export function deletePoem(req, res) {
+export function deletePoemId(id) {
     return __awaiter(this, void 0, void 0, function () {
-        var PoemId, upPoems, error_4;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    PoemId = Number(req.params.poemId);
-                    return [4 /*yield*/, deletePoemId(PoemId)];
-                case 1:
-                    upPoems = _a.sent();
-                    return [2 /*return*/, res.status(STATUS_CODE.OK).send('Poema deletado')];
-                case 2:
-                    error_4 = _a.sent();
-                    return [2 /*return*/, res.sendStatus(STATUS_CODE.SERVER_ERROR)];
-                case 3: return [2 /*return*/];
+                case 0: return [4 /*yield*/, connection.query("\n        DELETE FROM \n            poems\n        WHERE \n            id=($1)\n    ", [id])];
+                case 1: return [2 /*return*/, _a.sent()];
             }
         });
     });
