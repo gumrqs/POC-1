@@ -26,7 +26,7 @@
 
 ###
 
-<h6 align="left">O banco deste projeto já está populado, com tanto as informações cedidas acima servem para orientar de como pode ser feito o uso da aplicação. 📌</h6>
+<h6 align="left">O banco deste projeto já está populado, assim as informações cedidas acima servem para orientar de como pode ser feito o uso da aplicação. 📌</h6>
 
 ###
 
